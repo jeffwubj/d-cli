@@ -8,6 +8,7 @@ require (
 	github.com/Microsoft/hcsshim/test v0.0.0-20200826032352-301c83a30e7c // indirect
 	github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412 // indirect
 	github.com/bitly/go-hostpool v0.1.0 // indirect
+	github.com/cavaliercoder/grab v2.0.0+incompatible
 	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/cloudflare/cfssl v1.5.0 // indirect
 	github.com/containerd/cgroups v0.0.0-20200710171044-318312a37340 // indirect
@@ -29,7 +30,7 @@ require (
 	github.com/google/go-cmp v0.4.1 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/googleapis/gnostic v0.2.2 // indirect
-	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/gorilla/mux v1.8.0
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/jinzhu/gorm v1.9.16 // indirect
@@ -38,6 +39,7 @@ require (
 	github.com/kr/text v0.2.0 // indirect
 	github.com/logrusorgru/aurora v2.0.3+incompatible
 	github.com/miekg/pkcs11 v1.0.3 // indirect
+	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.3.1 // indirect
 	github.com/moby/buildkit v0.7.1-0.20200718032743-4d1f260e8490 // indirect
 	github.com/moby/locker v1.0.1 // indirect

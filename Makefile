@@ -11,14 +11,18 @@ clean:
 	-rm -rf $(BIN_DIR)
 
 .PHONY: build
-build: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker
+build: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-vm
 
 $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker:
 	@go build -o $@ ./cmd/kubectl-docker
 
+$(BIN_DIR)/$(NATIVE_ARCH)/kubectl-vm:
+	@go build -o $@ ./cmd/kubectl-vm
+
 .PHONY: install
-install: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker
+install: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-vm
 	cp $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker $(INSTALL_DIR)
+	cp $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-vm $(INSTALL_DIR)
 
 .PHONY: all
 all: clean build install
