@@ -16,33 +16,30 @@ limitations under the License.
 package vm
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/jeffwubj/d-vm-operator/api/v1alpha1"
 	"github.com/spf13/cobra"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"os"
-	"encoding/json"
 
 	"github.com/spf13/viper"
 )
 
-// listCmd represents the base command when called without any subcommands
-var listCmd = &cobra.Command{
-	Use:   "list",
-	Short: "list VMs",
+var VMName = ""
+
+// getCmd represents the base command when called without any subcommands
+var getCmd = &cobra.Command{
+	Use:   "get",
+	Short: "get [Name]",
 	Long: ``,
+	Args: validateListArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		contents, err := d.DesktopVMClient.List(metav1.ListOptions{})
+		desktopVM, err := d.DesktopVMClient.Get(VMName,metav1.GetOptions{})
 		if err != nil {
 			fmt.Println(err.Error())
 			return
 		}
-		var specs = []v1alpha1.DesktopVMSpec{}
-		for _, item := range contents.Items {
-			specs = append(specs, item.Spec)
-		}
-
-		body, err := json.MarshalIndent(specs,"", "    ")
+		body, err := json.MarshalIndent(desktopVM,"", "    ")
 		if err != nil {
 			fmt.Println(err.Error())
 			return
@@ -51,10 +48,22 @@ var listCmd = &cobra.Command{
 	},
 }
 
+func validateListArgs(cmd *cobra.Command, args []string) error {
+	if err := cobra.MinimumNArgs(1)(cmd, args); err != nil {
+		return fmt.Errorf("VM Name must be provided")
+	}
+
+	VMName = args[0]
+	if VMName == "" {
+		fmt.Errorf("VM name should not be empty")
+	}
+	return nil
+}
+
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
-func ExecuteListVMs() {
-	if err := listCmd.Execute(); err != nil {
+func ExecuteGetVM() {
+	if err := getCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
@@ -62,7 +71,7 @@ func ExecuteListVMs() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
-	viper.BindPFlags(listCmd.PersistentFlags())
-	listCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	rootCmd.AddCommand(listCmd)
+	viper.BindPFlags(getCmd.PersistentFlags())
+	getCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.AddCommand(getCmd)
 }
