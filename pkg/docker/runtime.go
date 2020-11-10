@@ -100,6 +100,11 @@ func bootStrapRuntime() error {
 					Volumes: [] apiv1.Volume{
 						{
 							Name: "docker-graph-storage",
+							VolumeSource: apiv1.VolumeSource{
+								HostPath: &apiv1.HostPathVolumeSource{
+									Path: "/var/lib/dind",
+								},
+							},
 						},
 					},
 					Containers: []apiv1.Container{

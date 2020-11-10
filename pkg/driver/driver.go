@@ -14,6 +14,8 @@ import (
 type Driver struct {
 	PodClient clientcorev1.PodInterface
 	DeploymentsClient     clientappsv1.DeploymentInterface
+	PersistentVolumeClient clientcorev1.PersistentVolumeInterface
+	PersistentVolumeClaimClient clientcorev1.PersistentVolumeClaimInterface
 }
 
 func InitDriver(kubeconfig string, namespace string) *Driver {
@@ -37,9 +39,15 @@ func InitDriver(kubeconfig string, namespace string) *Driver {
 	podClient := clientset.CoreV1().Pods(namespace)
 	deploymentsClient := clientset.AppsV1().Deployments(namespace)
 
+	persistentVolumeClient := clientset.CoreV1().PersistentVolumes()
+	persistentVolumeClaimClient := clientset.CoreV1().PersistentVolumeClaims(namespace)
+
+
 	return &Driver{
 		PodClient: podClient,
 		DeploymentsClient: deploymentsClient,
+		PersistentVolumeClient: persistentVolumeClient,
+		PersistentVolumeClaimClient: persistentVolumeClaimClient,
 	}
 }
 
