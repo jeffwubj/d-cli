@@ -8,7 +8,6 @@ require (
 	github.com/Microsoft/hcsshim/test v0.0.0-20200826032352-301c83a30e7c // indirect
 	github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412 // indirect
 	github.com/bitly/go-hostpool v0.1.0 // indirect
-	github.com/cavaliercoder/grab v2.0.0+incompatible // indirect
 	github.com/cenkalti/backoff v2.2.1+incompatible // indirect
 	github.com/cloudflare/cfssl v1.5.0 // indirect
 	github.com/containerd/cgroups v0.0.0-20200710171044-318312a37340 // indirect
@@ -23,15 +22,15 @@ require (
 	github.com/docker/go v1.5.1-1 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/swarmkit v1.12.1-0.20200604173159-967c829cdd33 // indirect
-	github.com/fatih/color v1.10.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/fvbommel/sortorder v1.0.2 // indirect
 	github.com/gofrs/flock v0.7.3 // indirect
 	github.com/google/go-cmp v0.4.1 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
+	github.com/googleapis/gnostic v0.2.2 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
-	github.com/jeffwubj/d-vm-operator v0.0.0-20201110060633-0b6d1a67d47e
+	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/jmoiron/sqlx v1.2.1-0.20190826204134-d7d95172beb5 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
@@ -45,6 +44,8 @@ require (
 	github.com/moby/term v0.0.0-20200915141129-7f0af18e79f2 // indirect
 	github.com/morikuni/aec v1.0.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
+	github.com/onsi/ginkgo v1.12.0 // indirect
+	github.com/onsi/gomega v1.9.0 // indirect
 	github.com/opencontainers/runc v1.0.0-rc92 //indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pelletier/go-toml v1.8.0 // indirect
@@ -55,11 +56,10 @@ require (
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5
-	github.com/spf13/viper v1.7.0
+	github.com/spf13/viper v1.7.0 // indirect
 	github.com/theupdateframework/notary v0.6.1 // indirect
 	github.com/tonistiigi/fsutil v0.0.0-20200724193237-c3ed55f3b481 // indirect
 	github.com/tonistiigi/go-rosetta v0.0.0-20201102221648-9ba854641817 // indirect
-	gitlab.eng.vmware.com/wujeff/d-cli v0.0.0-20201106060208-4aee41cdf37f // indirect
 	go.etcd.io/bbolt v1.3.5 // indirect
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208 // indirect
 	golang.org/x/time v0.0.0-20200416051211-89c76fbcd5d1 // indirect

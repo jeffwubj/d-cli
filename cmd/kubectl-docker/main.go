@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/jeffwubj/d-cli/pkg/docker"
+	"github.com/jeffwubj/d-cli/pkg/cmd/docker"
 )
 
 func main() {
