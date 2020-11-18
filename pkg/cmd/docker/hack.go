@@ -7,7 +7,7 @@ import (
 )
 
 func SetDockerHost(port int) {
-	os.Setenv("DOCKER_HOST", DefaultHost + strconv.Itoa(port))
+	os.Setenv("DOCKER_HOST", DefaultHost+ strconv.Itoa(port))
 }
 
 func IsPodTerminating(pod *api.Pod) bool{
