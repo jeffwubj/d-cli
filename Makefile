@@ -14,7 +14,7 @@ clean:
 build: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker 
 
 $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker:
-	@go build -o $@ ./cmd/kubectl-docker
+	@GOPROXY=https://goproxy.cn go build -o $@ ./cmd/kubectl-docker
 
 .PHONY: install
 install: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker 
