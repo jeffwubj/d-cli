@@ -1,4 +1,4 @@
-name: Go
+name: Build 
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
         fi
 
     - name: Build
-      run: make build
+      run: make dist 
 
     - name: Test
       run: go test -v ./...

@@ -6,9 +6,19 @@ INSTALL_DIR=/usr/local/bin
 BIN_DIR=./bin
 NATIVE_ARCH=$(shell uname | tr A-Z a-z)
 
+GOARCH=amd64
+OSES=linux darwin windows
+BUILD_TARGETS=$(foreach os,$(OSES),$(BIN_DIR)/$(os)/kubectl-docker)
+
 .PHONY: clean
 clean:
 	-rm -rf $(BIN_DIR)
+
+.PHONY: dist
+dist: clean $(BUILD_TARGETS)
+
+$(BIN_DIR)/%/kubectl-docker:
+	GOOS=$* go build -o $@ ./cmd/kubectl-docker
 
 .PHONY: build
 build: $(BIN_DIR)/$(NATIVE_ARCH)/kubectl-docker 
